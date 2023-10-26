@@ -1,0 +1,8 @@
+version: '3.3'
+services:
+  jakartaee-k8s-hello-world:
+    build: .
+    container_name: jakartaee-k8s-hello-world
+    image: 'johnyzhub/jakartaee-k8s-hello-world:v1'    
+    ports:
+    - '8080:8080'

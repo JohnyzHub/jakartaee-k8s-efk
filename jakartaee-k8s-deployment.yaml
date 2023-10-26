@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jakartaee-k8s-hello-world-deployment
+  labels:
+    app: jakartaee-k8s-hello-world
+spec:
+  replicas : 3
+  selector:
+    matchLabels:
+      app: jakartaee-k8s-hello-world
+      environment: production
+  template:
+    metadata:
+      labels:
+        app: jakartaee-k8s-hello-world
+        environment: production
+    spec:
+      containers:
+      - name: jakartaee-k8s-hello-world
+        image: johnyzhub/jakartaee-k8s-hello-world:v1
+        imagePullPolicy: IfNotPresent # check local docker images first before checking in central repo hub.docker.com
+        ports:
+        - containerPort: 8080
