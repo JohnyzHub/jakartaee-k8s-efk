@@ -7,7 +7,7 @@ spec:
   ports:
     - port: 8080
       targetPort: 8080
-      nodePort: 32760
+      nodePort: 32760 #nodePort ranges between (30000–32767). This is dynamic port allocation, to avoid conflicts
   selector:
       app: jakartaee-k8s-hello-world
       environment: production
